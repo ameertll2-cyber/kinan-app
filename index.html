@@ -3,58 +3,158 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="كِنان برنامج محاسبي عربي لإدارة المبيعات والمخزون والحسابات ونقاط البيع.">
-  <title>كِنان المحاسبي</title>
+  <meta name="description" content="كِنان برنامج محاسبي عربي للمحلات والمطاعم والصيدليات والمذاخر والمكاتب. المبيعات والمخزون والحسابات ونقاط البيع والنسخ الاحتياطي.">
+  <title>كِنان المحاسبي | إدارة أعمالك في مكان واحد</title>
   <style>
     :root{color-scheme:light;--navy:#13294b;--blue:#254d80;--gold:#e0b030;--ink:#1d2737;--muted:#586579;--line:#e1e7ef;--paper:#f5f7fb}
     *{box-sizing:border-box}
-    body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.9 Tahoma,Arial,sans-serif}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.9 Tahoma,Arial,sans-serif}
     a{color:var(--blue)}
-    header{background:#fff;border-bottom:1px solid var(--line)}
-    .nav{max-width:980px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{font-size:23px;font-weight:800;color:var(--navy)}
-    .nav a{font-size:15px;font-weight:700;text-decoration:none}
-    main{max-width:980px;margin:42px auto;padding:0 22px}
-    .hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:22px;padding:38px;box-shadow:0 12px 30px #13294b18}
-    .eyebrow{margin:0 0 6px;color:#f1d67e;font-size:14px;font-weight:700}
+    header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line)}
+    .nav{max-width:1120px;margin:auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{font-size:23px;font-weight:800;color:var(--navy);text-decoration:none;white-space:nowrap}
+    .navlinks{display:flex;flex-wrap:wrap;gap:5px 14px}
+    .navlinks a{font-size:14px;font-weight:700;text-decoration:none}
+    main{max-width:1120px;margin:30px auto;padding:0 22px}
+    .hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:22px;padding:36px;box-shadow:0 12px 30px #13294b18}
+    .eyebrow{margin:0 0 5px;color:#f1d67e;font-size:14px;font-weight:700}
     h1{margin:0;font-size:clamp(32px,6vw,48px);line-height:1.35}
-    .hero p:last-child{max-width:760px;margin:14px 0 0;color:#e5edf8;font-size:19px}
-    h2{margin:38px 0 8px;color:var(--navy);font-size:24px}
-    .intro{color:var(--muted);margin:0 0 18px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-    .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+    .hero p:last-of-type{max-width:820px;margin:14px 0 20px;color:#e5edf8;font-size:18px}
+    .actions{display:flex;flex-wrap:wrap;gap:10px}
+    .button{display:inline-block;padding:9px 18px;border:2px solid transparent;border-radius:11px;background:var(--gold);color:var(--navy);font-weight:800;text-decoration:none}
+    .button.outline{border-color:#dbe6f5;background:transparent;color:#fff}
+    section{scroll-margin-top:82px}
+    h2{margin:36px 0 7px;color:var(--navy);font-size:25px}
+    .intro{margin:0 0 16px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:13px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:17px}
     .card h3{margin:0 0 6px;color:var(--navy);font-size:18px}
     .card p{margin:0;color:var(--muted);font-size:15px}
-    .note{margin-top:24px;padding:16px 18px;background:#fff;border-right:4px solid var(--gold);border-radius:10px;color:var(--muted);font-size:15px}
-    footer{margin-top:42px;padding:20px;text-align:center;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-    @media(max-width:600px){main{margin:24px auto}.hero{padding:26px 22px}.nav{padding-inline:18px}}
+    .card ul{margin:4px 0 0;padding-inline-start:20px;color:#46536a;font-size:14.5px}
+    .card li+li{margin-top:3px}
+    .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:13px;background:#fff}
+    table{width:100%;border-collapse:collapse;min-width:520px}
+    th,td{padding:10px 13px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}
+    th{background:#eef2f8;color:var(--navy)}
+    tr:last-child td{border-bottom:0}
+    .edition{display:flex;flex-direction:column}
+    .edition p{flex:1}
+    .edition .button{margin-top:12px;text-align:center}
+    .note{margin-top:17px;padding:14px 17px;border-right:4px solid var(--gold);border-radius:9px;background:#fff;color:var(--muted);font-size:14px}
+    .privacy-warning{border-right-color:#cf8b22}
+    footer{margin-top:40px;padding:22px;text-align:center;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+    @media(max-width:700px){.nav{align-items:flex-start;flex-direction:column}.navlinks{gap:4px 11px}.hero{padding:25px 21px}main{margin:20px auto}}
   </style>
 </head>
 <body>
   <header>
-    <nav class="nav" aria-label="التنقل">
-      <div class="brand">كِنان</div>
-      <a href="./privacy.html">سياسة الخصوصية</a>
+    <nav class="nav" aria-label="التنقل الرئيسي">
+      <a class="brand" href="#top">كِنان</a>
+      <div class="navlinks">
+        <a href="#features">المزايا</a>
+        <a href="#screens">واجهات البرنامج</a>
+        <a href="#specs">المواصفات</a>
+        <a href="#editions">الإصدارات</a>
+        <a href="#requests">الطلبات</a>
+        <a href="#contact">التواصل</a>
+        <a href="./privacy.html">الخصوصية</a>
+      </div>
     </nav>
   </header>
   <main>
-    <section class="hero">
+    <section class="hero" id="top" aria-labelledby="title">
       <p class="eyebrow">برنامج محاسبي عربي للأعمال</p>
-      <h1>كِنان المحاسبي</h1>
-      <p>برنامج مكتبي لإدارة الحسابات ونقاط البيع للمحلات والمطاعم والصيدليات والمذاخر والمكاتب، بواجهة عربية وبيانات محفوظة على جهازك.</p>
-    </section>
-    <section aria-labelledby="features">
-      <h2 id="features">إدارة أعمالك في مكان واحد</h2>
-      <p class="intro">تتضمن وظائف كِنان المحاسبية، بحسب الإصدار والترخيص، ما يلي:</p>
-      <div class="grid">
-        <article class="card"><h3>المبيعات والمشتريات</h3><p>الفواتير والمرتجعات والزبائن والمجهزون، مع دعم النقد والآجل والخصومات.</p></article>
-        <article class="card"><h3>المخزون</h3><p>إدارة المواد والمخازن وحركات الإدخال والإخراج والجرد.</p></article>
-        <article class="card"><h3>الصندوق والحسابات</h3><p>القبض والدفع والمصروفات والأرصدة وكشوف الحساب.</p></article>
-        <article class="card"><h3>نقاط البيع والتقارير</h3><p>واجهة بيع سريعة وتقارير لمتابعة النشاط والنتائج المالية.</p></article>
+      <h1 id="title">كِنان المحاسبي</h1>
+      <p>برنامج مكتبي للمحلات والمطاعم والمقاهي والصيدليات والمذاخر والمكاتب. يدير المبيعات والمخزون والحسابات ونقاط البيع من واجهة عربية، ويعمل محليًا دون إنترنت للمهام اليومية.</p>
+      <div class="actions">
+        <a class="button" href="https://script.google.com/macros/s/AKfycbz7WnQUeHsWeIeaF8zmBgQG4VScwwuKlcmDeW1lp379_5nbNBpMaUQcrYN5tCw5kF4bhw/exec#kn-req">اطلب نسخة تجريبية</a>
+        <a class="button outline" href="#editions">تعرّف على الإصدارات</a>
       </div>
     </section>
-    <p class="note">يعمل البرنامج محليًا للمهام اليومية. عند تفعيل النسخ الاحتياطي السحابي، يرفع كِنان نسخة مشفّرة إلى حساب Google Drive الذي يختاره المستخدم. <a href="./privacy.html">اقرأ سياسة الخصوصية ومعالجة بيانات Google</a>.</p>
+
+    <section id="features" aria-labelledby="features-title">
+      <h2 id="features-title">ماذا يقدّم لك كِنان؟</h2>
+      <p class="intro">الوظائف المتاحة تختلف بحسب الإصدار والترخيص وإعدادات النشاط.</p>
+      <div class="grid">
+        <article class="card"><h3>🧾 المبيعات والمشتريات</h3><ul><li>فواتير البيع والشراء والمرتجعات وعروض الأسعار والطلبيات.</li><li>الدينار والدولار مع سعر صرف يومي.</li><li>النقد والآجل والبطاقة والخصومات ومستويات الأسعار.</li><li>طباعة A4 أو وصل حراري ومشاركة الفواتير.</li></ul></article>
+        <article class="card"><h3>🛒 نقطة البيع والكاشير</h3><ul><li>بيع سريع بالباركود والبحث والأزرار اللمسية.</li><li>دعم أجهزة البيع مثل الميزان ودرج النقود بحسب التجهيز.</li><li>الورديات وتسليم الصندوق ومطابقة النقد.</li><li>تعليق الفاتورة واسترجاعها والدفع المختلط.</li></ul></article>
+        <article class="card"><h3>🍽 المطعم والمقهى</h3><ul><li>طلبات الطاولات والسفري والتوصيل.</li><li>متابعة الطلبات وتقسيم الحساب.</li><li>إرسال الطلبات إلى طابعة المطبخ بحسب الإعداد.</li><li>قائمة الطعام والإضافات والوصفات وتكلفتها.</li></ul></article>
+        <article class="card"><h3>🛵 المندوبون</h3><ul><li>تسجيل الطلبات والتسليم والقبض.</li><li>إرسال الطلبات إلى المحل عبر الإنترنت.</li><li>متابعة مبيعات المندوب وكشف حسابه.</li></ul></article>
+        <article class="card"><h3>📦 المواد والمخازن</h3><ul><li>مخازن متعددة ونقل المواد والجرد.</li><li>التشغيلات والصلاحية والأرقام التسلسلية بحسب الإصدار.</li><li>وحدات متعددة وملصقات باركود.</li><li>تنبيه حد الطلب ومتابعة المواد الراكدة.</li></ul></article>
+        <article class="card"><h3>💵 الصندوق والحسابات</h3><ul><li>سندات القبض والدفع والمصروفات.</li><li>الصناديق والمصارف والبطاقات والصكوك.</li><li>رواتب الموظفين وسلفهم.</li><li>رأس المال وتوزيع الأرباح على الشركاء.</li></ul></article>
+        <article class="card"><h3>📊 التقارير ولوحة المتابعة</h3><ul><li>تقارير الأرباح والخسائر والميزانية.</li><li>كشوف حساب الزبائن والمجهزين.</li><li>حركة المواد ومتابعة الأرباح.</li><li>تذكير الديون وأعمارها.</li></ul></article>
+        <article class="card"><h3>☁ الأمان والنسخ الاحتياطي</h3><ul><li>نسخ يومية محلية.</li><li>نسخ مشفّرة إلى Google Drive عند ربط الحساب وتفعيل الميزة.</li><li>استعادة النسخ ومراجعة سجل العمليات.</li><li>مستخدمون وصلاحيات بحسب الإعداد.</li></ul></article>
+        <article class="card"><h3>🖧 عدة حاسبات وفروع</h3><ul><li>ربط الحاسبات على شبكة المحل بحسب الإعداد والترخيص.</li><li>إمكان العمل على الشبكة المحلية دون إنترنت.</li><li>تحديد صلاحيات المستخدمين على الأجهزة.</li></ul></article>
+        <article class="card"><h3>📷 قراءة الوصل والاستيراد</h3><ul><li>قراءة بيانات وصل الشراء من صورة عند دعمها.</li><li>مراجعة المواد والكميات والأسعار قبل الحفظ.</li><li>استيراد المواد والأرصدة من Excel.</li></ul></article>
+      </div>
+    </section>
+
+    <section id="screens" aria-labelledby="screens-title">
+      <h2 id="screens-title">واجهات البرنامج</h2>
+      <p class="intro">تتضمن واجهات كِنان لوحة المتابعة، وقوائم البيع، ونقطة البيع، والمواد والمخازن، وكشوف الحساب، والسندات، والطاولات، والنسخ الاحتياطي، والزبائن والمجهزين.</p>
+      <div class="note">ستُضاف صور الواجهات بعد تجهيز لقطات مخصصة للنشر العام. لم تُستخدم صور أو بيانات افتراضية بدلًا من صور البرنامج.</div>
+    </section>
+
+    <section id="specs" aria-labelledby="specs-title">
+      <h2 id="specs-title">المواصفات</h2>
+      <p class="intro">المتطلبات العامة المعلنة للبرنامج؛ قد تتغير بحسب الأجهزة والميزات المستخدمة.</p>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><th scope="row">نظام التشغيل</th><td>Windows 10 أو Windows 11 بنظام 64 بت.</td></tr>
+            <tr><th scope="row">الحاسبة</th><td>حاسبة مكتبية أو محمولة؛ ذاكرة 4 GB فأكثر موصى بها.</td></tr>
+            <tr><th scope="row">الإنترنت</th><td>غير مطلوب للعمل اليومي؛ يلزم لبعض خدمات الترخيص والنسخ الاحتياطي والمندوبين.</td></tr>
+            <tr><th scope="row">اللغة والعملة</th><td>واجهة عربية، مع الدينار العراقي والدولار وسعر الصرف.</td></tr>
+            <tr><th scope="row">الأجهزة</th><td>طابعات A4 والوصل الحراري، وقارئ الباركود، وأجهزة أخرى بحسب الإعداد.</td></tr>
+            <tr><th scope="row">عدد الحاسبات</th><td>حاسبة واحدة أو حاسبات مرتبطة بالشبكة وفق الترخيص.</td></tr>
+            <tr><th scope="row">البيانات</th><td>تُحفظ بيانات العمل في ملف كِنان؛ ويمكن رفع نسخة مشفّرة إلى حساب Google Drive الذي يختاره المستخدم.</td></tr>
+            <tr><th scope="row">الترخيص</th><td>تتحدد تفاصيل الترخيص والدعم والتحديثات عند التواصل مع المطوّر.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="editions" aria-labelledby="editions-title">
+      <h2 id="editions-title">إصدارات كِنان</h2>
+      <p class="intro">إصدارات مخصصة لأنشطة مختلفة؛ اطلب تجربة أو استفسر عن الميزات المتاحة في ترخيصك.</p>
+      <div class="grid">
+        <article class="card edition"><h3>الإصدار الكامل</h3><p>مجموعة مزايا البرنامج في إصدار واحد.</p><a class="button" href="https://script.google.com/macros/s/AKfycbz7WnQUeHsWeIeaF8zmBgQG4VScwwuKlcmDeW1lp379_5nbNBpMaUQcrYN5tCw5kF4bhw/exec#kn-req">اطلب تجربة</a></article>
+        <article class="card edition"><h3>محل عام</h3><p>للمحلات والأسواق والجملة والمفرد؛ بيع وشراء ومخازن وحسابات زبائن.</p><a class="button" href="https://script.google.com/macros/s/AKfycbz7WnQUeHsWeIeaF8zmBgQG4VScwwuKlcmDeW1lp379_5nbNBpMaUQcrYN5tCw5kF4bhw/exec#kn-req">اطلب تجربة</a></article>
+        <article class="card edition"><h3>مطعم ومقهى</h3><p>الطاولات والطلبات والنادل وطابعات المطبخ والتوصيل.</p><a class="button" href="https://script.google.com/macros/s/AKfycbz7WnQUeHsWeIeaF8zmBgQG4VScwwuKlcmDeW1lp379_5nbNBpMaUQcrYN5tCw5kF4bhw/exec#kn-req">اطلب تجربة</a></article>
+        <article class="card edition"><h3>صيدلية</h3><p>الأدوية والتشغيلات والصلاحية والبدائل والتنبيه قبل الانتهاء.</p><a class="button" href="https://script.google.com/macros/s/AKfycbz7WnQUeHsWeIeaF8zmBgQG4VScwwuKlcmDeW1lp379_5nbNBpMaUQcrYN5tCw5kF4bhw/exec#kn-req">اطلب تجربة</a></article>
+        <article class="card edition"><h3>مذخر أدوية</h3><p>بيع الجملة للصيدليات والمندوبون ومستويات الأسعار والتشغيلات.</p><a class="button" href="https://script.google.com/macros/s/AKfycbz7WnQUeHsWeIeaF8zmBgQG4VScwwuKlcmDeW1lp379_5nbNBpMaUQcrYN5tCw5kF4bhw/exec#kn-req">اطلب تجربة</a></article>
+        <article class="card edition"><h3>محل ملابس</h3><p>المقاسات والألوان والباركود وتصفية المواسم.</p><a class="button" href="https://script.google.com/macros/s/AKfycbz7WnQUeHsWeIeaF8zmBgQG4VScwwuKlcmDeW1lp379_5nbNBpMaUQcrYN5tCw5kF4bhw/exec#kn-req">اطلب تجربة</a></article>
+        <article class="card edition"><h3>مكتب وخدمات</h3><p>سندات ومصروفات ورواتب وكشوف حسابات للمكاتب والشركات الخدمية.</p><a class="button" href="https://script.google.com/macros/s/AKfycbz7WnQUeHsWeIeaF8zmBgQG4VScwwuKlcmDeW1lp379_5nbNBpMaUQcrYN5tCw5kF4bhw/exec#kn-req">اطلب تجربة</a></article>
+        <article class="card edition"><h3>مختبر تحليلات</h3><p>إصدار مخصص للمختبرات الطبية ضمن الإصدارات المتاحة.</p><a class="button" href="https://script.google.com/macros/s/AKfycbz7WnQUeHsWeIeaF8zmBgQG4VScwwuKlcmDeW1lp379_5nbNBpMaUQcrYN5tCw5kF4bhw/exec#kn-req">استفسر عن الإصدار</a></article>
+      </div>
+    </section>
+
+    <section id="requests" aria-labelledby="requests-title">
+      <h2 id="requests-title">طلب نسخة أو تحديث أو تطوير خاص</h2>
+      <p class="intro">نموذج الطلب الموجود في خدمة كِنان يسجل طلبك ويرسل إشعارًا إلى المطوّر. التحديث يتطلب بريد الترخيص المسجل في البرنامج.</p>
+      <div class="actions">
+        <a class="button" href="https://script.google.com/macros/s/AKfycbz7WnQUeHsWeIeaF8zmBgQG4VScwwuKlcmDeW1lp379_5nbNBpMaUQcrYN5tCw5kF4bhw/exec#kn-req">فتح نموذج الطلب الحقيقي</a>
+        <a class="button outline" href="mailto:ameertll2@gmail.com">مراسلة المطوّر</a>
+      </div>
+      <p class="note">يفتح النموذج خدمة Google Apps Script الخارجية، ويطلب معلومات التواصل ونوع الطلب. راجع <a href="./privacy.html">سياسة الخصوصية</a> قبل الإرسال.</p>
+    </section>
+
+    <section id="protection" aria-labelledby="protection-title">
+      <h2 id="protection-title">الحماية عند فقدان الحاسبة</h2>
+      <p class="intro">يوفر الموقع الأصلي خدمة طوارئ لمالك الترخيص للتحقق من الطلب واتخاذ إجراء مثل قفل البرنامج أو إرسال أمر مسح عن بُعد وفق إعدادات كِنان.</p>
+      <div class="note privacy-warning">لا تستخدم خدمة الطوارئ إلا عند فقدان الجهاز أو سرقته، واقرأ الإجراء المعروض قبل تأكيده؛ قد يؤدي المسح إلى إزالة بيانات البرنامج من الحاسبة المستهدفة.</div>
+      <p><a class="button" href="https://sites.google.com/view/kinan-app">فتح موقع خدمة الطوارئ الحالي</a></p>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">التواصل مع المطوّر</h2>
+      <p class="intro">للاستفسار عن التركيب أو الترخيص أو الدعم الفني:</p>
+      <p><a class="button" href="mailto:ameertll2@gmail.com">ameertll2@gmail.com</a></p>
+    </section>
   </main>
-  <footer>كِنان المحاسبي</footer>
+  <footer>
+    <a href="./privacy.html">سياسة الخصوصية</a> · كِنان المحاسبي
+  </footer>
 </body>
 </html>
